@@ -1,9 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from "axios";
-import SandwichOverview from "./components/SandwichOverview";
-import CreateSandwich from "./components/CreateSandwich";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Routes
+} from "react-router-dom";
 import {Sandwich} from "./model/Sandwich";
+import ShopPage from "./pages/ShopPage";
+import SandwichPage from "./pages/SandwichPage";
 
 function App() {
     // Creates a state "sandwiches" and gives us a method to change/set it
@@ -41,20 +47,13 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Bestellungen</h1>
-
-                {/*
-            TODO: Füge Conditional Rendering hinzu!
-            Wenn die sandwiches Liste leer ist, soll ein Text erscheinen
-            der sagt "Bitte eine Bestellung hinzufügen"
-        */}
-
-                {sandwiches.length === 0
-                    && <h3>Bitte bestellen Sie endlich mal, ich habe bald Feierabend und möchte nachhause gehen</h3>}
-
-                <SandwichOverview sandwiches={sandwiches} deleteSandwich={deleteSandwich}/>
-                <CreateSandwich addSandwich={addSandwich}/>
-
+                <Router>
+                    <Routes>
+                        <Route path={"/"} element={<ShopPage sandwiches={sandwiches} addSandwich={addSandwich}
+                                                             deleteSandwich={deleteSandwich}/>}/>
+                        <Route path={"/sandwiches/:id"} element={<SandwichPage sandwiches={sandwiches}/>}/>
+                    </Routes>
+                </Router>
             </header>
         </div>
     );

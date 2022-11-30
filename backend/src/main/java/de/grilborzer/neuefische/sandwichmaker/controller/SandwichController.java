@@ -41,7 +41,7 @@ public class SandwichController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public Sandwich deleteTodoById(@PathVariable String id) {
+    public String deleteTodoById(@PathVariable String id) {
         return sandwichService.deleteSandwichById(id);
     }
 }

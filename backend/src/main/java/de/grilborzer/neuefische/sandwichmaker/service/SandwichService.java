@@ -39,27 +39,27 @@ public class SandwichService {
                 // Das bauen wir
                 .build();
 
-        return sandwichRepository.saveSandwich(newSandwich);
+        return sandwichRepository.save(newSandwich);
     }
 
     public Sandwich getSandwichByID(String id) {
-        return sandwichRepository.findByID(id);
+        return sandwichRepository.findById(id).orElseThrow(() -> new NoSuchElementException("There is no Sandwich with the requested ID " + id));
     }
 
-    // public = Andere Klassen dürfen diese Methode sehen (Sichtbarkeit)
-    // Sandwich = Der Rückgabetyp der Methode
-    // updateSandwich = Methodenname
-    // (Sandwich           eineVariableVomTypSandwich)
-    // ^Typ des Parameter  ^das Objekt das die Methode braucht
     public Sandwich updateSandwich(Sandwich eineVariableVomTypSandwich) {
         if (!sandwichRepository.existsById(eineVariableVomTypSandwich.getId())){
-            throw new NoSuchElementException("There is no Element with the requested ID");
+            throw new NoSuchElementException("There is no Sandwich with the requested ID " + eineVariableVomTypSandwich.getId());
         }
 
-        return sandwichRepository.updateSandwich(eineVariableVomTypSandwich);
+        return sandwichRepository.save(eineVariableVomTypSandwich);
     }
 
-    public Sandwich deleteSandwichById(String id) {
-        return sandwichRepository.deleteSandwichById(id);
+    public String deleteSandwichById(String id) {
+        if (!sandwichRepository.existsById(id)){
+            throw new NoSuchElementException("There is no Sandwich with the requested ID " + id);
+        }
+
+        sandwichRepository.deleteById(id);
+        return id;
     }
 }

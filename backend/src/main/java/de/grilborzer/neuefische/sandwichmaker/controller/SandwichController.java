@@ -31,8 +31,8 @@ public class SandwichController {
     }
 
     @GetMapping(path = "/{id}")
-    public Sandwich getSandwichByID(@PathVariable String id) {
-        return sandwichService.getSandwichByID(id);
+    public Sandwich getSandwichById(@PathVariable String id) {
+        return sandwichService.getSandwichById(id);
     }
 
     @PutMapping(path = "/{id}")

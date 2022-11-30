@@ -42,7 +42,7 @@ public class SandwichService {
         return sandwichRepository.save(newSandwich);
     }
 
-    public Sandwich getSandwichByID(String id) {
+    public Sandwich getSandwichById(String id) {
         return sandwichRepository.findById(id).orElseThrow(() -> new NoSuchElementException("There is no Sandwich with the requested ID " + id));
     }
 

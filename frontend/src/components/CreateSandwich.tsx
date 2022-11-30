@@ -20,7 +20,7 @@ export default function CreateSandwich(props: CreateSandwichProps) {
     const [sandwich, setSandwich] = useState(emptySandwichPlaceholder)
 
     /*
-    * TODO: Aufgabe 3 -> Erstelle eine handleSubmit(event: FormEvent<HTMLFormElement>) Funktion,
+    * Aufgabe 3 -> Erstelle eine handleSubmit(event: FormEvent<HTMLFormElement>) Funktion,
     *  die props.addSandwich aufruft und das neue Sandwich-Objekt als Parameter übergibt
     **/
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -31,11 +31,10 @@ export default function CreateSandwich(props: CreateSandwichProps) {
     }
 
     /*
-    * TODO:  Aufgabe 2 -> Erstelle eine handleChange(event: ChangeEvent<HTMLInputElement>) Funktion,
+    * Aufgabe 2 -> Erstelle eine handleChange(event: ChangeEvent<HTMLInputElement>) Funktion,
     *  die Änderungen an der Form übernimmt und den Sandwich-State aktualisiert
     **/
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
-        const inputValue = event.target.value
         const nameOfTheInputThatChanged = event.target.name
 
         setSandwich(
@@ -50,7 +49,7 @@ export default function CreateSandwich(props: CreateSandwichProps) {
     }
 
     /*
-    * TODO: Aufgabe 1 -> Erstelle eine <form> mit der man alle Daten eines Burgers angeben kann
+    * Aufgabe 1 -> Erstelle eine <form> mit der man alle Daten eines Burgers angeben kann
     **/
     return (
         <div>
@@ -106,7 +105,7 @@ export default function CreateSandwich(props: CreateSandwichProps) {
         </div>
     )
 
-    /* TODO: Bonusaufgabe 1 -> Füge dem Projekt Routing hinzu (click auf ein Sandwich, öffnet die Sandwich-Details wie bei Rick&Morty)  */
-    /* TODO: Bonusaufgabe 2 -> Style das Projekt nach deinen Wünschen  */
-    /* TODO: Bonusaufgabe 3 -> Gib dem Sandwich-Objekt mehr Attribute (im Frontend + Backend)  */
+    /* Bonusaufgabe 1 -> Füge dem Projekt Routing hinzu (click auf ein Sandwich, öffnet die Sandwich-Details wie bei Rick&Morty)  */
+    /* Bonusaufgabe 2 -> Style das Projekt nach deinen Wünschen  */
+    /* Bonusaufgabe 3 -> Gib dem Sandwich-Objekt mehr Attribute (im Frontend + Backend)  */
 }

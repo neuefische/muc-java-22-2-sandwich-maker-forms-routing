@@ -1,14 +1,12 @@
 package de.grilborzer.neuefische.sandwichmaker.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@With
 public class Sandwich {
     private String id;
     private String name;
